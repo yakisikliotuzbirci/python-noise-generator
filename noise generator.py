@@ -38,7 +38,7 @@ def main():
         draw.line([(x, y), (x + 1, y + 1)], fill=color)
 
         if y == resolution[1]:
-            image.save(r"noise.png")
+            image.save(f"noise {resolution[0]}x{resolution[1]}.png")
             sys.exit()
 
 if __name__ == "__main__":
