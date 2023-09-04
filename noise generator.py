@@ -10,7 +10,7 @@ def main():
 
     x, y = 0, 0
 
-    image = Image.new("RGB", (resolution[0], resolution[1]), "white")
+    image = Image.new("RGB", (resolution[0], resolution[1]))
     draw = ImageDraw.Draw(image)
 
     _t = time.time()
