@@ -38,7 +38,7 @@ def main():
         elif r == 5:
             color = "#7b7b7b"
 
-        draw.line([(x, y), (x + 1, y + 1)], fill=color)
+        draw.line([(x, y), (x, y)], fill=color)
         
         if time.time() - _t >= 1:
             print(f"%{(y/h)*100} generated")
