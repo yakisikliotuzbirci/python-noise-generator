@@ -1,6 +1,6 @@
 from random import randint
 from PIL import Image, ImageDraw
-import sys
+import sys, time
 
 def main():
     w = int(input("width : "))
@@ -12,6 +12,9 @@ def main():
 
     image = Image.new("RGB", (resolution[0], resolution[1]), "white")
     draw = ImageDraw.Draw(image)
+
+    _t = time.time()
+    _t2 = _t
 
     while True:
         x = x + 1
@@ -29,16 +32,23 @@ def main():
         elif r == 2:
             color = "#b1b1b1"
         elif r == 3:
-            color = "#fbfbfb"
+            color = "#bfbfbf"
         elif r == 4:
             color = "#dbdbdb"
         elif r == 5:
-            color = "#1f1f1f"
+            color = "#7b7b7b"
 
         draw.line([(x, y), (x + 1, y + 1)], fill=color)
+        
+        if time.time() - _t >= 1:
+            print(f"%{(y/h)*100} generated")
+            _t = time.time()
 
         if y == resolution[1]:
+            print(f"%{(y/h)*100} generated")
+            print(f"generated in {time.time() - _t2} seconds")
             image.save(f"noise {resolution[0]}x{resolution[1]}.png")
+            time.sleep(1)
             sys.exit()
 
 if __name__ == "__main__":
